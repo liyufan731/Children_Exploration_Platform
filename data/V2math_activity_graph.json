@@ -1,0 +1,978 @@
+{
+  "domains": [
+    {
+      "id": "D01",
+      "name": "数与量",
+      "color": "#FFE8D9",
+      "icon": "🔢",
+      "description": "数量感知、数数、比较、简单运算"
+    },
+    {
+      "id": "D02",
+      "name": "形状与空间",
+      "color": "#D9E8FF",
+      "icon": "🔺",
+      "description": "形状识别、空间方位、分类匹配"
+    },
+    {
+      "id": "D03",
+      "name": "比较与测量",
+      "color": "#E8FFD9",
+      "icon": "📏",
+      "description": "长度、重量比较，测量概念"
+    },
+    {
+      "id": "D04",
+      "name": "规律与逻辑",
+      "color": "#FFF0D9",
+      "icon": "🔁",
+      "description": "模式识别、规律发现、逻辑推理"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "C01",
+      "name": "数量感知",
+      "domain_id": "D01",
+      "description": "理解数量的多少，建立数感"
+    },
+    {
+      "id": "C02",
+      "name": "形状识别",
+      "domain_id": "D02",
+      "description": "辨认基本形状，形状特征"
+    },
+    {
+      "id": "C03",
+      "name": "测量比较",
+      "domain_id": "D03",
+      "description": "理解长度、重量等量的大小规律"
+    },
+    {
+      "id": "C04",
+      "name": "数的运算",
+      "domain_id": "D01",
+      "description": "简单加减法，数的分解组合"
+    },
+    {
+      "id": "C05",
+      "name": "规律模式",
+      "domain_id": "D04",
+      "description": "识别和延续简单规律模式"
+    },
+    {
+      "id": "C06",
+      "name": "空间方位",
+      "domain_id": "D02",
+      "description": "左右、前后、顺序等空间概念"
+    }
+  ],
+  "activity_groups": [
+    {
+      "id": "G01",
+      "name": "基础数数",
+      "description": "3-4岁儿童的基础数数活动",
+      "age_range": "3-4",
+      "difficulty_range": "1-2",
+      "activities": ["A001", "A003"]
+    },
+    {
+      "id": "G02",
+      "name": "进阶数数",
+      "description": "4-5岁儿童的进阶数数活动",
+      "age_range": "4-5",
+      "difficulty_range": "2-3",
+      "activities": ["A009", "A010"]
+    },
+    {
+      "id": "G03",
+      "name": "形状认知",
+      "description": "基础形状识别与配对",
+      "age_range": "3-4",
+      "difficulty_range": "1-2",
+      "activities": ["A002", "A007", "A008"]
+    },
+    {
+      "id": "G04",
+      "name": "比较判断",
+      "description": "数量比较与判断",
+      "age_range": "3-5",
+      "difficulty_range": "1-3",
+      "activities": ["A004", "A005", "A011", "A012", "A025"]
+    },
+    {
+      "id": "G05",
+      "name": "规律发现",
+      "description": "发现和延续简单规律",
+      "age_range": "5-6",
+      "difficulty_range": "3",
+      "activities": ["A014", "A015"]
+    },
+    {
+      "id": "G06",
+      "name": "基础运算",
+      "description": "5-6岁儿童的加减法理解",
+      "age_range": "5-6",
+      "difficulty_range": "3",
+      "activities": ["A016", "A017", "A018", "A019"]
+    },
+    {
+      "id": "G07",
+      "name": "测量比较",
+      "description": "长度、重量等测量概念",
+      "age_range": "5-6",
+      "difficulty_range": "3",
+      "activities": ["A020", "A021"]
+    },
+    {
+      "id": "G08",
+      "name": "空间方位",
+      "description": "左右、顺序等空间概念",
+      "age_range": "5-6",
+      "difficulty_range": "3",
+      "activities": ["A022", "A023", "A024"]
+    },
+    {
+      "id": "G09",
+      "name": "分类匹配",
+      "description": "分类与匹配能力",
+      "age_range": "4-5",
+      "difficulty_range": "2-3",
+      "activities": ["A006", "A013"]
+    }
+  ],
+  "activities": [
+    {
+      "id": "A001",
+      "name": "数一数小鸭",
+      "domain_id": "D01",
+      "concept_id": "C01",
+      "group_id": "G01",
+      "age_range": "3-4",
+      "difficulty": 1,
+      "duration_minutes": 3,
+      "description": "通过数池塘里的小鸭子，建立数量与数字的对应关系。",
+      "activity_type": "counting",
+      "sensory_type": "visual",
+      "interest_tags": ["动物", "池塘", "黄色"],
+      "prompt_text": "用手指点一点，数一数有几只小鸭？",
+      "materials": ["图片", "手指"],
+      "image_asset": "assets/activities/ducks_preview.png",
+      "variants": [
+        {
+          "params": { "object": "duck", "min": 1, "max": 3 },
+          "image_asset": "assets/objects/ducks_3.png",
+          "correct_answer": 3,
+          "hint": "一只一只数，不要漏掉哦"
+        },
+        {
+          "params": { "object": "duck", "min": 2, "max": 5 },
+          "image_asset": "assets/objects/ducks_5.png",
+          "correct_answer": 5,
+          "hint": "数到5了吗？再数一次"
+        }
+      ]
+    },
+    {
+      "id": "A002",
+      "name": "形状配配对",
+      "domain_id": "D02",
+      "concept_id": "C02",
+      "group_id": "G03",
+      "age_range": "3-4",
+      "difficulty": 1,
+      "duration_minutes": 4,
+      "description": "将相同的形状图片配对，培养观察力和形状认知。",
+      "activity_type": "matching",
+      "sensory_type": "visual",
+      "interest_tags": ["形状", "配对", "游戏"],
+      "prompt_text": "左边是什么形状？从右边找出一样的。",
+      "materials": ["图片"],
+      "image_asset": "assets/activities/shapes_preview.png",
+      "variants": [
+        {
+          "params": {
+            "target": "圆形",
+            "target_image": "assets/shapes/circle.png",
+            "options": [
+              { "image": "assets/shapes/circle.png", "label": "圆形" },
+              { "image": "assets/shapes/square.png", "label": "方形" },
+              { "image": "assets/shapes/triangle.png", "label": "三角形" }
+            ]
+          },
+          "correct_answer": 0,
+          "hint": "圆形像太阳一样圆圆的，再找一找"
+        },
+        {
+          "params": {
+            "target": "方形",
+            "target_image": "assets/shapes/square.png",
+            "options": [
+              { "image": "assets/shapes/triangle.png", "label": "三角形" },
+              { "image": "assets/shapes/square.png", "label": "方形" },
+              { "image": "assets/shapes/circle.png", "label": "圆形" }
+            ]
+          },
+          "correct_answer": 1,
+          "hint": "方形有四个角，四条边一样长"
+        }
+      ]
+    },
+    {
+      "id": "A003",
+      "name": "数一数小苹果",
+      "domain_id": "D01",
+      "concept_id": "C01",
+      "group_id": "G01",
+      "age_range": "3-4",
+      "difficulty": 1,
+      "duration_minutes": 3,
+      "description": "通过数苹果建立数量感知。",
+      "activity_type": "counting",
+      "sensory_type": "visual",
+      "interest_tags": ["水果", "苹果"],
+      "prompt_text": "数一数有几个苹果？",
+      "materials": ["图片"],
+      "image_asset": "assets/activities/apple_preview.png",
+      "variants": [
+        {
+          "params": { "object": "apple", "min": 1, "max": 3 },
+          "image_asset": "assets/objects/apples_3.png",
+          "correct_answer": 3,
+          "hint": "慢慢数，一个一个来"
+        },
+        {
+          "params": { "object": "apple", "min": 2, "max": 4 },
+          "image_asset": "assets/objects/apples_4.png",
+          "correct_answer": 4,
+          "hint": "再检查一遍哦"
+        }
+      ]
+    },
+    {
+      "id": "A004",
+      "name": "哪个更多？小动物",
+      "domain_id": "D01",
+      "concept_id": "C01",
+      "group_id": "G04",
+      "age_range": "3-4",
+      "difficulty": 1,
+      "duration_minutes": 3,
+      "description": "比较两组动物数量的多少。",
+      "activity_type": "comparing",
+      "sensory_type": "visual",
+      "interest_tags": ["动物", "比较"],
+      "prompt_text": "哪一边的小动物更多？",
+      "materials": ["图片"],
+      "image_asset": "assets/activities/compare_animals.png",
+      "variants": [
+        {
+          "params": {
+            "left_count": 2,
+            "right_count": 4,
+            "left_image": "assets/objects/cat_2.png",
+            "right_image": "assets/objects/dog_4.png"
+          },
+          "correct_answer": "right",
+          "hint": "多的一边数量更多"
+        },
+        {
+          "params": {
+            "left_count": 5,
+            "right_count": 3,
+            "left_image": "assets/objects/cat_5.png",
+            "right_image": "assets/objects/dog_3.png"
+          },
+          "correct_answer": "left",
+          "hint": "再数一数两边"
+        }
+      ]
+    },
+    {
+      "id": "A005",
+      "name": "一样多吗？",
+      "domain_id": "D01",
+      "concept_id": "C01",
+      "group_id": "G04",
+      "age_range": "4-5",
+      "difficulty": 2,
+      "duration_minutes": 3,
+      "description": "判断两组物体是否一样多。",
+      "activity_type": "comparing",
+      "sensory_type": "visual",
+      "interest_tags": ["比较", "判断"],
+      "prompt_text": "两边一样多吗？",
+      "materials": ["图片"],
+      "image_asset": "assets/activities/equal_compare.png",
+      "variants": [
+        {
+          "params": {
+            "left_count": 4,
+            "right_count": 4,
+            "left_image": "assets/objects/ball_4.png",
+            "right_image": "assets/objects/ball_4.png"
+          },
+          "correct_answer": "equal",
+          "hint": "一样多就是相等"
+        }
+      ]
+    },
+    {
+      "id": "A006",
+      "name": "找找相同的水果",
+      "domain_id": "D02",
+      "concept_id": "C02",
+      "group_id": "G09",
+      "age_range": "3-4",
+      "difficulty": 1,
+      "duration_minutes": 3,
+      "description": "匹配相同水果。",
+      "activity_type": "matching",
+      "sensory_type": "visual",
+      "interest_tags": ["水果", "配对"],
+      "prompt_text": "找出一样的水果",
+      "materials": ["图片"],
+      "image_asset": "assets/activities/fruit_match.png",
+      "variants": [
+        {
+          "params": {
+            "target": "苹果",
+            "target_image": "assets/fruits/apple.png",
+            "options": [
+              { "image": "assets/fruits/apple.png", "label": "苹果" },
+              { "image": "assets/fruits/banana.png", "label": "香蕉" },
+              { "image": "assets/fruits/orange.png", "label": "橙子" }
+            ]
+          },
+          "correct_answer": 0,
+          "hint": "颜色和形状都要一样"
+        }
+      ]
+    },
+    {
+      "id": "A007",
+      "name": "认识三角形",
+      "domain_id": "D02",
+      "concept_id": "C02",
+      "group_id": "G03",
+      "age_range": "3-4",
+      "difficulty": 1,
+      "duration_minutes": 3,
+      "description": "识别三角形。",
+      "activity_type": "shape_recognition",
+      "sensory_type": "visual",
+      "interest_tags": ["形状", "三角形"],
+      "prompt_text": "哪个是三角形？",
+      "materials": ["图片"],
+      "image_asset": "assets/activities/triangle.png",
+      "variants": [
+        {
+          "params": {
+            "target": "三角形",
+            "options": [
+              { "image": "assets/shapes/circle.png", "label": "圆形" },
+              { "image": "assets/shapes/triangle.png", "label": "三角形" },
+              { "image": "assets/shapes/square.png", "label": "方形" }
+            ]
+          },
+          "correct_answer": 1,
+          "hint": "三角形有三个角"
+        }
+      ]
+    },
+    {
+      "id": "A008",
+      "name": "认识正方形",
+      "domain_id": "D02",
+      "concept_id": "C02",
+      "group_id": "G03",
+      "age_range": "3-4",
+      "difficulty": 1,
+      "duration_minutes": 3,
+      "description": "识别正方形。",
+      "activity_type": "shape_recognition",
+      "sensory_type": "visual",
+      "interest_tags": ["形状", "方形"],
+      "prompt_text": "找出正方形",
+      "materials": ["图片"],
+      "image_asset": "assets/activities/square.png",
+      "variants": [
+        {
+          "params": {
+            "target": "正方形",
+            "options": [
+              { "image": "assets/shapes/square.png", "label": "正方形" },
+              { "image": "assets/shapes/circle.png", "label": "圆形" },
+              { "image": "assets/shapes/triangle.png", "label": "三角形" }
+            ]
+          },
+          "correct_answer": 0,
+          "hint": "四条边一样长"
+        }
+      ]
+    },
+    {
+      "id": "A009",
+      "name": "数一数小汽车",
+      "domain_id": "D01",
+      "concept_id": "C01",
+      "group_id": "G02",
+      "age_range": "4-5",
+      "difficulty": 2,
+      "duration_minutes": 3,
+      "description": "数10以内的小汽车。",
+      "activity_type": "counting",
+      "sensory_type": "visual",
+      "interest_tags": ["交通工具"],
+      "prompt_text": "一共有多少辆小汽车？",
+      "materials": ["图片"],
+      "image_asset": "assets/activities/car_count.png",
+      "variants": [
+        {
+          "params": { "object": "car", "min": 5, "max": 7 },
+          "image_asset": "assets/objects/cars_7.png",
+          "correct_answer": 7,
+          "hint": "从1开始一个个数"
+        },
+        {
+          "params": { "object": "car", "min": 6, "max": 9 },
+          "image_asset": "assets/objects/cars_9.png",
+          "correct_answer": 9,
+          "hint": "不要漏数哦"
+        }
+      ]
+    },
+    {
+      "id": "A010",
+      "name": "数一数小星星",
+      "domain_id": "D01",
+      "concept_id": "C01",
+      "group_id": "G02",
+      "age_range": "4-5",
+      "difficulty": 2,
+      "duration_minutes": 3,
+      "description": "数星星数量。",
+      "activity_type": "counting",
+      "sensory_type": "visual",
+      "interest_tags": ["星空"],
+      "prompt_text": "有多少颗星星？",
+      "materials": ["图片"],
+      "image_asset": "assets/activities/star.png",
+      "variants": [
+        {
+          "params": { "object": "star", "min": 5, "max": 8 },
+          "image_asset": "assets/objects/stars_8.png",
+          "correct_answer": 8,
+          "hint": "慢慢数"
+        }
+      ]
+    },{
+      "id": "A011",
+      "name": "谁多一点？",
+      "domain_id": "D01",
+      "concept_id": "C01",
+      "group_id": "G04",
+      "age_range": "4-5",
+      "difficulty": 2,
+      "duration_minutes": 3,
+      "description": "比较接近数量差异。",
+      "activity_type": "comparing",
+      "sensory_type": "visual",
+      "interest_tags": ["比较"],
+      "prompt_text": "哪边多一点？",
+      "materials": ["图片"],
+      "image_asset": "assets/activities/compare_close.png",
+      "variants": [
+        {
+          "params": {
+            "left_count": 6,
+            "right_count": 7,
+            "left_image": "assets/objects/ball_6.png",
+            "right_image": "assets/objects/ball_7.png"
+          },
+          "correct_answer": "right",
+          "hint": "差一点点也要认真看"
+        }
+      ]
+    },
+    {
+      "id": "A012",
+      "name": "差多少？",
+      "domain_id": "D01",
+      "concept_id": "C01",
+      "group_id": "G04",
+      "age_range": "5-6",
+      "difficulty": 3,
+      "duration_minutes": 4,
+      "description": "理解数量差值。",
+      "activity_type": "comparing",
+      "sensory_type": "visual",
+      "interest_tags": ["比较", "差值"],
+      "prompt_text": "多了几个？",
+      "materials": ["图片"],
+      "image_asset": "assets/activities/difference.png",
+      "variants": [
+        {
+          "params": {
+            "left_count": 5,
+            "right_count": 8,
+            "left_image": "assets/objects/apple_5.png",
+            "right_image": "assets/objects/apple_8.png"
+          },
+          "correct_answer": 3,
+          "hint": "可以一个一个对比"
+        }
+      ]
+    },
+    {
+      "id": "A013",
+      "name": "分类小动物",
+      "domain_id": "D02",
+      "concept_id": "C02",
+      "group_id": "G09",
+      "age_range": "4-5",
+      "difficulty": 2,
+      "duration_minutes": 4,
+      "description": "按类别进行分类。",
+      "activity_type": "matching",
+      "sensory_type": "visual",
+      "interest_tags": ["动物", "分类"],
+      "prompt_text": "把相同的动物放在一起",
+      "materials": ["图片"],
+      "image_asset": "assets/activities/animal_sort.png",
+      "variants": [
+        {
+          "params": {
+            "target": "猫",
+            "target_image": "assets/animals/cat.png",
+            "options": [
+              { "image": "assets/animals/cat.png", "label": "猫" },
+              { "image": "assets/animals/dog.png", "label": "狗" },
+              { "image": "assets/animals/cat.png", "label": "猫" }
+            ]
+          },
+          "correct_answer": [0, 2],
+          "hint": "找出所有猫"
+        }
+      ]
+    },
+    {
+      "id": "A014",
+      "name": "找规律（ABAB）",
+      "domain_id": "D04",
+      "concept_id": "C05",
+      "group_id": "G05",
+      "age_range": "5-6",
+      "difficulty": 3,
+      "duration_minutes": 4,
+      "description": "识别简单重复规律。",
+      "activity_type": "pattern",
+      "sensory_type": "visual",
+      "interest_tags": ["规律"],
+      "prompt_text": "下一个是什么？",
+      "materials": ["图片"],
+      "image_asset": "assets/activities/pattern.png",
+      "variants": [
+        {
+          "params": {
+            "sequence": ["🍎", "🍌", "🍎", "🍌"],
+            "options": ["🍎", "🍌", "🍇"]
+          },
+          "correct_answer": 0,
+          "hint": "一红一黄重复"
+        }
+      ]
+    },
+    {
+      "id": "A015",
+      "name": "找规律（颜色）",
+      "domain_id": "D04",
+      "concept_id": "C05",
+      "group_id": "G05",
+      "age_range": "5-6",
+      "difficulty": 3,
+      "duration_minutes": 4,
+      "description": "识别颜色规律。",
+      "activity_type": "pattern",
+      "sensory_type": "visual",
+      "interest_tags": ["颜色", "规律"],
+      "prompt_text": "接下来是什么颜色？",
+      "materials": ["图片"],
+      "image_asset": "assets/activities/color_pattern.png",
+      "variants": [
+        {
+          "params": {
+            "sequence": ["红", "蓝", "红", "蓝"],
+            "options": ["红", "绿", "黄"]
+          },
+          "correct_answer": 0,
+          "hint": "红蓝交替"
+        }
+      ]
+    },
+    {
+      "id": "A016",
+      "name": "小动物加法",
+      "domain_id": "D01",
+      "concept_id": "C04",
+      "group_id": "G06",
+      "age_range": "5-6",
+      "difficulty": 3,
+      "duration_minutes": 4,
+      "description": "通过动物数量进行简单加法。",
+      "activity_type": "addition",
+      "sensory_type": "visual",
+      "interest_tags": ["动物", "加法"],
+      "prompt_text": "一共有多少只小动物？",
+      "materials": ["图片"],
+      "image_asset": "assets/activities/add_animals.png",
+      "variants": [
+        {
+          "params": {
+            "a": 2,
+            "b": 3,
+            "image_a": "assets/objects/cat_2.png",
+            "image_b": "assets/objects/dog_3.png"
+          },
+          "correct_answer": 5,
+          "hint": "把两边合起来数"
+        }
+      ]
+    },
+    {
+      "id": "A017",
+      "name": "水果加法",
+      "domain_id": "D01",
+      "concept_id": "C04",
+      "group_id": "G06",
+      "age_range": "5-6",
+      "difficulty": 3,
+      "duration_minutes": 4,
+      "description": "通过水果进行加法练习。",
+      "activity_type": "addition",
+      "sensory_type": "visual",
+      "interest_tags": ["水果", "加法"],
+      "prompt_text": "一共有多少个水果？",
+      "materials": ["图片"],
+      "image_asset": "assets/activities/add_fruit.png",
+      "variants": [
+        {
+          "params": {
+            "a": 4,
+            "b": 2,
+            "image_a": "assets/objects/apple_4.png",
+            "image_b": "assets/objects/apple_2.png"
+          },
+          "correct_answer": 6,
+          "hint": "可以接着数"
+        }
+      ]
+    },
+    {
+      "id": "A018",
+      "name": "气球减法",
+      "domain_id": "D01",
+      "concept_id": "C04",
+      "group_id": "G06",
+      "age_range": "5-6",
+      "difficulty": 3,
+      "duration_minutes": 4,
+      "description": "通过气球减少理解减法。",
+      "activity_type": "subtraction",
+      "sensory_type": "visual",
+      "interest_tags": ["气球", "减法"],
+      "prompt_text": "还剩多少个气球？",
+      "materials": ["图片"],
+      "image_asset": "assets/activities/sub_balloon.png",
+      "variants": [
+        {
+          "params": {
+            "total": 5,
+            "remove": 2,
+            "image_total": "assets/objects/balloon_5.png"
+          },
+          "correct_answer": 3,
+          "hint": "拿走两个再数"
+        }
+      ]
+    },
+    {
+      "id": "A019",
+      "name": "分一分（5以内）",
+      "domain_id": "D01",
+      "concept_id": "C04",
+      "group_id": "G06",
+      "age_range": "5-6",
+      "difficulty": 3,
+      "duration_minutes": 4,
+      "description": "理解数的分解。",
+      "activity_type": "number_composition",
+      "sensory_type": "visual",
+      "interest_tags": ["分解"],
+      "prompt_text": "5可以分成哪两部分？",
+      "materials": ["图片"],
+      "image_asset": "assets/activities/compose.png",
+      "variants": [
+        {
+          "params": {
+            "total": 5,
+            "options": [
+              [2, 3],
+              [1, 1],
+              [4, 0]
+            ]
+          },
+          "correct_answer": 0,
+          "hint": "两部分加起来要等于5"
+        }
+      ]
+    },
+    {
+      "id": "A020",
+      "name": "哪根更长？",
+      "domain_id": "D03",
+      "concept_id": "C03",
+      "group_id": "G07",
+      "age_range": "5-6",
+      "difficulty": 3,
+      "duration_minutes": 3,
+      "description": "比较长度。",
+      "activity_type": "measurement",
+      "sensory_type": "visual",
+      "interest_tags": ["长度"],
+      "prompt_text": "哪一根更长？",
+      "materials": ["图片"],
+      "image_asset": "assets/activities/length.png",
+      "variants": [
+        {
+          "params": {
+            "left_length": 5,
+            "right_length": 8
+          },
+          "correct_answer": "right",
+          "hint": "长的那一边更大"
+        }
+      ]
+    },
+    {
+      "id": "A021",
+      "name": "谁更重？",
+      "domain_id": "D03",
+      "concept_id": "C03",
+      "group_id": "G07",
+      "age_range": "5-6",
+      "difficulty": 3,
+      "duration_minutes": 3,
+      "description": "比较重量。",
+      "activity_type": "measurement",
+      "sensory_type": "visual",
+      "interest_tags": ["重量"],
+      "prompt_text": "哪个更重？",
+      "materials": ["图片"],
+      "image_asset": "assets/activities/weight.png",
+      "variants": [
+        {
+          "params": {
+            "left_weight": 3,
+            "right_weight": 6
+          },
+          "correct_answer": "right",
+          "hint": "重的那边更大"
+        }
+      ]
+    },
+    {
+      "id": "A022",
+      "name": "认识左右",
+      "domain_id": "D02",
+      "concept_id": "C06",
+      "group_id": "G08",
+      "age_range": "5-6",
+      "difficulty": 3,
+      "duration_minutes": 3,
+      "description": "识别左右方向。",
+      "activity_type": "spatial",
+      "sensory_type": "visual",
+      "interest_tags": ["空间"],
+      "prompt_text": "小球在左边还是右边？",
+      "materials": ["图片"],
+      "image_asset": "assets/activities/left_right.png",
+      "variants": [
+        {
+          "params": {
+            "object_position": "left"
+          },
+          "correct_answer": "left",
+          "hint": "看清楚位置"
+        }
+      ]
+    },
+    {
+      "id": "A023",
+      "name": "数字排队",
+      "domain_id": "D02",
+      "concept_id": "C06",
+      "group_id": "G08",
+      "age_range": "5-6",
+      "difficulty": 3,
+      "duration_minutes": 4,
+      "description": "理解数字顺序。",
+      "activity_type": "sequence",
+      "sensory_type": "visual",
+      "interest_tags": ["顺序"],
+      "prompt_text": "下一个数字是什么？",
+      "materials": ["图片"],
+      "image_asset": "assets/activities/sequence.png",
+      "variants": [
+        {
+          "params": {
+            "sequence": [1, 2, 3, 4],
+            "options": [5, 6, 3]
+          },
+          "correct_answer": 0,
+          "hint": "一个一个增加"
+        }
+      ]
+    },
+    {
+      "id": "A024",
+      "name": "倒着数",
+      "domain_id": "D02",
+      "concept_id": "C06",
+      "group_id": "G08",
+      "age_range": "5-6",
+      "difficulty": 3,
+      "duration_minutes": 4,
+      "description": "理解倒序。",
+      "activity_type": "sequence",
+      "sensory_type": "visual",
+      "interest_tags": ["倒序"],
+      "prompt_text": "下一个数字是什么？",
+      "materials": ["图片"],
+      "image_asset": "assets/activities/reverse.png",
+      "variants": [
+        {
+          "params": {
+            "sequence": [5, 4, 3],
+            "options": [2, 1, 4]
+          },
+          "correct_answer": 0,
+          "hint": "越来越小"
+        }
+      ]
+    },
+    {
+      "id": "A025",
+      "name": "找最大",
+      "domain_id": "D01",
+      "concept_id": "C01",
+      "group_id": "G04",
+      "age_range": "5-6",
+      "difficulty": 3,
+      "duration_minutes": 3,
+      "description": "找出最大数。",
+      "activity_type": "comparing",
+      "sensory_type": "visual",
+      "interest_tags": ["比较"],
+      "prompt_text": "哪个最大？",
+      "materials": ["图片"],
+      "image_asset": "assets/activities/max.png",
+      "variants": [
+        {
+          "params": {
+            "numbers": [3, 7, 5]
+          },
+          "correct_answer": 1,
+          "hint": "最大的数值最大"
+        }
+      ]
+    }
+  ],
+  "relation_types": [
+    {
+      "type": "LEADS_TO",
+      "description": "自然进阶，完成from后可尝试to",
+      "weight": 1.0
+    },
+    {
+      "type": "SIMILAR_TO",
+      "description": "同类替换，兴趣迁移",
+      "weight": 0.7,
+      "bidirectional": true
+    },
+    {
+      "type": "REMEDIAL_TO",
+      "description": "降阶补救，当from困难时推荐to",
+      "weight": 0.5
+    }
+  ],
+  "relations": [
+
+    { "type": "LEADS_TO", "from": "A001", "to": "A003" },
+    { "type": "LEADS_TO", "from": "A003", "to": "A009" },
+    { "type": "LEADS_TO", "from": "A009", "to": "A010" },
+    { "type": "LEADS_TO", "from": "A010", "to": "A016" },
+    { "type": "LEADS_TO", "from": "A016", "to": "A017" },
+    { "type": "LEADS_TO", "from": "A017", "to": "A018" },
+
+
+    { "type": "LEADS_TO", "from": "A004", "to": "A005" },
+    { "type": "LEADS_TO", "from": "A005", "to": "A011" },
+    { "type": "LEADS_TO", "from": "A011", "to": "A012" },
+    { "type": "LEADS_TO", "from": "A012", "to": "A025" },
+
+
+    { "type": "LEADS_TO", "from": "A002", "to": "A007" },
+    { "type": "LEADS_TO", "from": "A007", "to": "A008" },
+    { "type": "LEADS_TO", "from": "A008", "to": "A022" },
+    { "type": "LEADS_TO", "from": "A022", "to": "A013" },
+
+
+    { "type": "LEADS_TO", "from": "A014", "to": "A015" },
+    { "type": "LEADS_TO", "from": "A015", "to": "A020" },
+    { "type": "LEADS_TO", "from": "A020", "to": "A021" },
+    { "type": "LEADS_TO", "from": "A021", "to": "A023" },
+
+
+    { "type": "LEADS_TO", "from": "A006", "to": "A014" },
+    { "type": "LEADS_TO", "from": "A013", "to": "A019" },
+    { "type": "LEADS_TO", "from": "A018", "to": "A024" },
+
+
+        { "type": "REMEDIAL_TO", "from": "A016", "to": "A010" },
+    { "type": "REMEDIAL_TO", "from": "A012", "to": "A011" },
+    { "type": "REMEDIAL_TO", "from": "A022", "to": "A008" },
+    { "type": "REMEDIAL_TO", "from": "A021", "to": "A020" },
+    { "type": "REMEDIAL_TO", "from": "A018", "to": "A017" },
+    { "type": "REMEDIAL_TO", "from": "A024", "to": "A023" },
+
+
+    { "type": "SIMILAR_TO", "from": "A001", "to": "A003" },
+    { "type": "SIMILAR_TO", "from": "A003", "to": "A009" },
+    { "type": "SIMILAR_TO", "from": "A009", "to": "A010" },
+
+
+    { "type": "SIMILAR_TO", "from": "A004", "to": "A005" },
+    { "type": "SIMILAR_TO", "from": "A005", "to": "A011" },
+
+
+    { "type": "SIMILAR_TO", "from": "A002", "to": "A007" },
+    { "type": "SIMILAR_TO", "from": "A007", "to": "A008" },
+
+
+    { "type": "SIMILAR_TO", "from": "A014", "to": "A015" },
+
+
+    { "type": "SIMILAR_TO", "from": "A016", "to": "A017" },
+    { "type": "SIMILAR_TO", "from": "A017", "to": "A018" },
+
+
+    { "type": "SIMILAR_TO", "from": "A020", "to": "A021" },
+
+
+    { "type": "SIMILAR_TO", "from": "A023", "to": "A024" },
+
+
+    { "type": "SIMILAR_TO", "from": "A006", "to": "A013" }
+  ]
+}
