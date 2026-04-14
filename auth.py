@@ -1,14 +1,7 @@
 # auth.py
 import streamlit as st
 from database.dao.user_dao import create_user, verify_user
-from config.settings import PAGE_TITLE, PAGE_ICON, LAYOUT, COLORS
-
-# 页面配置（必须在最前面）
-st.set_page_config(
-    page_title=f"{PAGE_TITLE} - 登录",
-    page_icon=PAGE_ICON,
-    layout=LAYOUT
-)
+from config.settings import COLORS
 
 
 def login_page():
@@ -77,20 +70,6 @@ def login_page():
             color: #B0A392;
             font-size: 0.9rem;
         }}
-        .success-message {{
-            background-color: {COLORS['success']};
-            color: #3E5C4A;
-            padding: 1rem;
-            border-radius: 15px;
-            text-align: center;
-        }}
-        .error-message {{
-            background-color: #FFD4D4;
-            color: #B85C5C;
-            padding: 1rem;
-            border-radius: 15px;
-            text-align: center;
-        }}
     </style>
     """, unsafe_allow_html=True)
 
@@ -105,6 +84,7 @@ def login_page():
     # 创建选项卡
     tab1, tab2 = st.tabs(["🔐 登录", "📝 注册"])
 
+    # ---------- 登录选项卡 ----------
     with tab1:
         with st.container():
             st.markdown('<div class="login-card">', unsafe_allow_html=True)
@@ -124,6 +104,7 @@ def login_page():
                         if user:
                             st.session_state['user'] = user
                             st.session_state['logged_in'] = True
+                            st.session_state['current_page'] = 'child_manager'
                             st.success("登录成功！正在跳转...")
                             st.rerun()
                         else:
@@ -131,6 +112,7 @@ def login_page():
 
             st.markdown('</div>', unsafe_allow_html=True)
 
+    # ---------- 注册选项卡 ----------
     with tab2:
         with st.container():
             st.markdown('<div class="login-card">', unsafe_allow_html=True)
@@ -139,12 +121,12 @@ def login_page():
             with st.form("register_form"):
                 col1, col2 = st.columns(2)
                 with col1:
-                    username = st.text_input("用户名 *", placeholder="字母或数字")
+                    username = st.text_input("用户名 *", placeholder="字母或数字", key="reg_username")
                 with col2:
-                    name = st.text_input("称呼", placeholder="例如：乐乐妈妈")
+                    name = st.text_input("称呼", placeholder="例如：乐乐妈妈", key="reg_name")
 
-                password = st.text_input("密码 *", type="password", placeholder="至少6位")
-                password_confirm = st.text_input("确认密码 *", type="password")
+                password = st.text_input("密码 *", type="password", placeholder="至少6位", key="reg_password")
+                password_confirm = st.text_input("确认密码 *", type="password", key="reg_confirm")
 
                 submitted = st.form_submit_button("注册")
 
@@ -158,17 +140,9 @@ def login_page():
                     else:
                         user_id = create_user(username, password, name)
                         if user_id > 0:
-                            st.success("注册成功！请登录")
-                            # 自动切换到登录选项卡（通过js模拟点击）
-                            st.markdown("""
-                            <script>
-                                setTimeout(function() {
-                                    window.location.reload();
-                                }, 1500);
-                            </script>
-                            """, unsafe_allow_html=True)
+                            st.success("🎉 注册成功！请切换到登录选项卡登录。")
                         else:
-                            st.error("用户名已存在")
+                            st.error("用户名已存在，请更换")
 
             st.markdown('</div>', unsafe_allow_html=True)
 
@@ -181,21 +155,19 @@ def login_page():
 
 
 def logout():
-    """登出函数"""
-    if 'user' in st.session_state:
-        del st.session_state['user']
-    if 'logged_in' in st.session_state:
-        del st.session_state['logged_in']
-    if 'current_child' in st.session_state:
-        del st.session_state['current_child']
+    """登出函数：清空所有会话状态并返回登录页"""
+    for key in list(st.session_state.keys()):
+        del st.session_state[key]
+    st.session_state['logged_in'] = False
+    st.session_state['current_page'] = 'auth'
     st.rerun()
 
 
+# 独立运行时测试（可选）
 if __name__ == "__main__":
-    # 初始化会话状态
+    st.set_page_config(page_title="数学探索乐园", page_icon="🧸", layout="centered")
     if 'logged_in' not in st.session_state:
         st.session_state['logged_in'] = False
-
     if not st.session_state['logged_in']:
         login_page()
     else:

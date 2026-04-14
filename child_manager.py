@@ -1,12 +1,10 @@
 # child_manager.py
 import streamlit as st
 from database.dao.child_dao import (
-    create_child, get_children_by_parent, get_child_by_id,
-    update_last_exploration_time
+    create_child, get_children_by_parent, update_last_exploration_time
 )
 from config.settings import COLORS, AGE_RANGES, AVATAR_OPTIONS
 import auth
-from datetime import datetime
 
 
 def child_manager_page():
@@ -93,7 +91,7 @@ def child_manager_page():
     with col2:
         if st.button("🚪 登出", use_container_width=True):
             auth.logout()
-            st.rerun()
+            # logout() 函数会清理 session，并重新运行，无需额外设置
 
     # 获取当前家长的儿童列表
     children = get_children_by_parent(parent_id)
@@ -138,9 +136,8 @@ def child_manager_page():
                 if st.button(f"选择 {child['name']}", key=f"select_{child['id']}", use_container_width=True):
                     st.session_state['current_child'] = child
                     update_last_exploration_time(child['id'])
-                    st.success(f"已选择 {child['name']}，即将进入探索乐园...")
-                    st.switch_page("exploration.py")  # 下一步创建
-
+                    st.session_state['current_page'] = 'exploration'
+                    st.rerun()
                 st.markdown("<br>", unsafe_allow_html=True)
     else:
         st.markdown("""
@@ -162,21 +159,15 @@ def child_manager_page():
                 age_range = st.selectbox("年龄范围", AGE_RANGES)
 
             with col2:
-                # 头像选择
                 st.markdown("<p style='margin-bottom: 0.5rem;'>选择头像</p>", unsafe_allow_html=True)
-                avatar_cols = st.columns(4)
-                selected_avatar_idx = 0
-                for i, av in enumerate(AVATAR_OPTIONS):
-                    with avatar_cols[i % 4]:
-                        # 显示头像预览
-                        st.markdown(f"""
-                        <div style="background: {av['bg']}; width: 45px; height: 45px; border-radius: 50%;
-                                    display: flex; align-items: center; justify-content: center; margin-bottom: 5px;">
-                            <span style="font-size: 24px;">{av['emoji']}</span>
-                        </div>
-                        """, unsafe_allow_html=True)
-                        if st.button(f"选{av['emoji']}", key=f"av_{i}"):
-                            selected_avatar_idx = i
+                avatar_options = [av['emoji'] for av in AVATAR_OPTIONS]
+                selected_avatar_idx = st.radio(
+                    "选择头像",
+                    options=range(len(AVATAR_OPTIONS)),
+                    format_func=lambda i: AVATAR_OPTIONS[i]['emoji'],
+                    label_visibility="collapsed",
+                    horizontal=True
+                )
 
             submitted = st.form_submit_button("✨ 创建档案", type="primary")
 
@@ -184,10 +175,8 @@ def child_manager_page():
                 if not name:
                     st.error("请输入孩子名字")
                 else:
-                    # 保存选中的头像（用选中的或默认第一个）
                     import json
                     avatar_json = json.dumps(AVATAR_OPTIONS[selected_avatar_idx])
-
                     child_id = create_child(parent_id, name, age_range, avatar_json)
                     if child_id:
                         st.success(f"🎉 {name}的探索档案已创建！")

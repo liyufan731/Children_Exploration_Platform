@@ -1,5 +1,7 @@
 import os
-
+# 在 settings.py 添加
+import plotly.express as px
+import plotly.graph_objects as go
 # 项目根目录
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
